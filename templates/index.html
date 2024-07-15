@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Enrollement</title>
+{% endblock %}
+
+{% block body %}
+<div class="grid-container" style="align-items: top;">
+    <div class="grid-items">
+        <h1>Student Enrollement</h1>
+        <form action="/" method="POST">
+            <input type="text" name="name" id="content" placeholder="Stundent Name" required>
+            <input type="number" name="rollnumber" id="content" placeholder="Stundent Rollnumber" required>
+            <input type="submit", value="Add">
+        </form>
+    </div>
+    <div class="grid-items">
+        <h1>Student list</h1>
+        {% if datas|length < 1 %}
+        <h3>There are no student added. Add one!</h3>
+        {% else %}
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Name</th>
+                    <th>Enrolled Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in datas %}
+                <tr>
+                    <td>{{data.rollnumber}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.enrolled_date.date()}}</td>
+                    <td><a href="/edit/{{data.id}}">Edit</a></td>
+                    <td><a href="/delete/{{data.id}}">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {%  endif %}
+    </div>
+</div>
+{% endblock %}
