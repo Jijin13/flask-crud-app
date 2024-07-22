@@ -2,20 +2,23 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    padding-top: 100px;
     box-sizing: border-box;
     font-family: sans-serif;
     background-color: #e3f2e3;
 }
-.grid-container{
+.container{
     display: grid;
-    grid-template-columns: auto auto  ;
-    column-gap: 50px;
-    width: 100%;
-    padding: 20px 150px 20px 150px ;
+    grid-template-rows: auto ;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 50px;
+    width: 90%;
+    margin: auto;
 }
 
-.grid-items {
+.item{
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center; 
@@ -28,11 +31,13 @@ body {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    min-width: 400px;
+    min-width: 200px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 10px;
     table-layout: fixed;
+    padding: 0px 20px 0px 20px;
 } 
 
 .content-table thead tr{
@@ -62,6 +67,7 @@ body {
 form{
     text-align: center;
     display: inline-block;
+    padding: 0px 20px 0px 20px;
 }
 
 
@@ -83,21 +89,13 @@ input[type="submit"] {
     color: white;
     border: none;
     cursor: pointer;
-    width: 50%; /* Set a fixed width for the button */
-    padding: 10px 0; /* Adjust padding for better appearance */
-    margin: 10px auto; /* Center-align the button using auto margins */
+    width: 50%;
+    padding: 10px 0;
+    margin: 10px auto;
 }
 
 input[type="submit"]:hover {
-    background-color: #009878;
-}
-
-.my-form {
-    max-width: 400px; /* Adjust width as needed */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow with blur radius */
+    background-color: #10745e;
 }
 
 a{
@@ -107,11 +105,4 @@ a{
 
 a:hover{
     text-decoration: underline;
-}
-
-@media (min-width: 600px) {
-    .grid-container{
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-    }
 }
